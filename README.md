@@ -2,7 +2,7 @@
 
 <br>
 <p align="center">
-  <img alt="Login" src=".github/Home.png" width="30%"><img alt="Home" src=".github/Home.png" width="30%">
+  <img alt="Home" src=".github/Home.png" width="70%"><img alt="Home" src=".github/Home.png" width="70%">
 
 </p> 
 <br>
@@ -37,12 +37,12 @@ react-native run-ios/androind
 
 |    Lib       | Version  |
 | ------------ | -------- |
-| axios        | 0.21.4   |
 | redux saga   | 2.2.9    |
 | redux        | 4.1.1    |
 | redux-thunk  | 2.3.0    |
-| yup          | 0.32.9   |
+| clsx         | 0.32.9   |
 | formik       | 2.29     |
+| -------------|--------- |
 
 ## :bookmark: License
 
