@@ -1,6 +1,7 @@
+import { persistStore, persistReducer, } from 'redux-persist'
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-
+import storage from 'redux-persist/lib/storage';
 import { reducer } from '../reducer';
 
 import rootSaga from './sagas';
@@ -12,9 +13,19 @@ const sagaMiddleware = createSagaMiddleware();
 const middlewares = [
     sagaMiddleware
 ]
-const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')): {}
+const persistConfig ={
+    key: 'todos',
+    storage
+}
+
 const store = createStore(reducer, compose(applyMiddleware(...middlewares)));
-localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+
 sagaMiddleware.run(rootSaga);
+
+store.subscribe(()=>{
+    localStorage.setItem('testLocal', JSON.stringify(store.getState()))
+  })
+
+
 
 export default store;

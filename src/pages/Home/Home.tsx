@@ -13,6 +13,7 @@ import { Todo } from '../../redux/types';
 import clsx from 'clsx';
 import Modal from '../../components/modal/Modal';
 import { Link, useHistory, useParams, Route } from 'react-router-dom';
+
 //import clsx from 'classnames'
 type Params ={
     id:string,
@@ -23,8 +24,13 @@ export default function Home() {
 
     const dispatch = useDispatch<Dispatch<Actions>>()
     const todos = useSelector<AppState, Array<Todo>>(state => state.todos)
-    const history = useHistory()
+    const lstodos= localStorage.setItem('@App:todos', JSON.stringify(todos))
+    
+    const tudo = localStorage.getItem('testLocal');
+    console.log("From lc st", tudo);
     const {id}= useParams<Params>()
+    
+    const mytodos = localStorage.getItem('@App:todoo')
     
     useEffect(()=>{
         if(id){
@@ -40,6 +46,7 @@ export default function Home() {
         const todo = createTodo('saga_todo_', value)
         console.log("Testing:", todo)
         dispatch(requestToAdd(todo))
+        
         setValue('')
     }
     return (

@@ -8,10 +8,16 @@ import { REQUEST_TO_ADD, REQUEST_TO_REMOVE_TASK, ACTIVE_TASK, EDIT_TASK} from '.
 import { RequestToAdd, RequestToRemove, SetActiveTask, EditTask} from './types';
 
 
+
 function* requestAddTodo(data: RequestToAdd) {
     try {
+        
         yield call(apiCall)
-        yield put(add(data.todo))
+        
+        yield put(add(data.todo))  
+        
+
+       
     } catch(e:any) {
         console.error(e.message)
     }
@@ -30,8 +36,8 @@ function * requestToEditTask(data: EditTask){
     try {
         yield call(apiCall)
         yield put(edit(data.id))
-    } catch (error:any) {
-        console.error(error.message)
+    } catch (e:any) {
+        console.error(e.message)
     }
 }
 function* requestToggleTodo(data: SetActiveTask) {
