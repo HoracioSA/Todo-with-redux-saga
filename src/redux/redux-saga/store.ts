@@ -12,9 +12,9 @@ const sagaMiddleware = createSagaMiddleware();
 const middlewares = [
     sagaMiddleware
 ]
-
+const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')): {}
 const store = createStore(reducer, compose(applyMiddleware(...middlewares)));
-
+localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 sagaMiddleware.run(rootSaga);
 
 export default store;
