@@ -1,8 +1,8 @@
-# Testing new staffs
+# Todo App with saga
 
 <br>
 <p align="center">
-  <img alt="Home" src=".github/Home.png" width="70%"><img alt="Home" src=".github/Home.png" width="70%">
+  <img alt="Home page" src=".github/Home.png" width="70%"><img alt="Edit Page" src=".github/Modal.png" width="70%">
 
 </p> 
 <br>
@@ -18,7 +18,7 @@
 
 #### About
 
-The main propose of this project is to create an app with login page and home page where we could authenticate, validate the user before reaching the home page. And finily connect the app to API.
+The main propose of this project is to create a Todo app where we could add new todos, delete, update and change the status our todos as done or uncheck, by saving the tasks in local storage.
 
 ##  Languages
 
@@ -27,11 +27,12 @@ The main propose of this project is to create an app with login page and home pa
 ## Usage
 
 ```sh
-git clone https://github.com/HoracioSA/comptools_test
-cd comptools_test
-yarn
-cd ios && pod install
-react-native run-ios/androind
+git clone https://github.com/HoracioSA/Todo-with-redux-saga.git
+
+cd Todo-with-redux-saga
+yarn install
+yarn start
+
 ```
 #### Technologies
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Dispatch } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,17 +12,31 @@ import { AppState } from '../../redux/redux-saga/store';
 import { Todo } from '../../redux/types';
 import clsx from 'clsx';
 import Modal from '../../components/modal/Modal';
+import { Link, useHistory, useParams, Route } from 'react-router-dom';
 //import clsx from 'classnames'
+type Params ={
+    id:string,
+} 
 export default function Home() {
     const [value, setValue] = React.useState('')
     const [showModal, setShowModal] = React.useState(false);
 
     const dispatch = useDispatch<Dispatch<Actions>>()
     const todos = useSelector<AppState, Array<Todo>>(state => state.todos)
-    console.log('Todos:', todos)
+    const history = useHistory()
+    const {id}= useParams<Params>()
+    
+    useEffect(()=>{
+        if(id){
+            const singleTodo= todos.find(todo => todo.id === id)
+            //setValue({...singleTodo})
+            
+        }  
+       
+    },[id])
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
         const todo = createTodo('saga_todo_', value)
         console.log("Testing:", todo)
         dispatch(requestToAdd(todo))
@@ -30,6 +44,7 @@ export default function Home() {
     }
     return (
         <>
+       
         <Modal onClose={()=>setShowModal(false)}
         show={showModal}
         />
@@ -56,7 +71,9 @@ export default function Home() {
                                 
                                 <h2  className="list" >{todo.title}</h2>
                                 <div className="buttons-container">
-                                    <button className="btn-edit" onClick={()=>setShowModal(true)}><Edit size={18} color="#FFF"/> </button>
+                                    {/* <Link to={`/edit/${todo.id}`}> */}
+                                    <button className="btn-edit" onClick={() =>setShowModal(true)}><Edit size={18} color="#FFF"/> </button>
+                                    {/* </Link> */}
                                     <button className="btn-delete" value="delete" onClick={() => dispatch(requestToRemove(todo.id))}><Trash size={18} color="#FFF"/></button>
                                 </div>
                             </div>
@@ -69,6 +86,7 @@ export default function Home() {
                 </footer>
             </main>
         </div>
+       
         </>
     )
 }
