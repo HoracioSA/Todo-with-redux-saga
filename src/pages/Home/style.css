@@ -167,8 +167,6 @@ ul{
     height: 3.5rem;
     width: 3.5rem;
     color: var(--color-background);
-
-    
 }
 .checked{
     display: flex;
@@ -246,5 +244,5 @@ h2{
     justify-content:center;
     align-items:center;
     width: 100vw;
-    max-width: 1500px;
+    /* max-width: 1500px; */
 }

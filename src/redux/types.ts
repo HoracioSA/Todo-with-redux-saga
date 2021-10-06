@@ -5,6 +5,10 @@ export interface Todo {
     title: string
 }
 
+export interface Todos{
+    data:Todo[]
+}
+
 export const ADD = "ADD"
 export type ADDTD = typeof ADD
 
