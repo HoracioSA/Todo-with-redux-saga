@@ -95,14 +95,14 @@ ul{
 }
 
 .table-container{
-   max-width:900px;
+   max-width:1200px;
     display: flex;
     justify-content: space-between;  
 }
 .listCard{
     display: flex;
-    width:40rem;
-    padding:1rem;
+    width:100%;
+    padding:2rem;
     margin-top:1rem;
     border-radius:1rem;
     justify-content: space-between;
@@ -111,30 +111,17 @@ ul{
 }
 .listCardCheked{
     display: flex;
-    width:40rem;
-    padding:1rem;
+    width:100%;
+    padding:2rem;
     margin-top:1rem;
     border-radius:1rem;
     justify-content: space-between;
     background-color: var(--color-secundary);
 }
-.table-container ul li{
-    position: relative;
-    background: var(--color-primary);
-    font-size: 18px;
-    transition: 0.2s;
-    height: 3rem;
-    list-style-type: none;
-   margin-top: 1rem;
-   padding: 1rem 2rem;
-   color: var(--color-white);
-   font-weight: normal;
-   text-align: center;
-   opacity: 0.6;
-   border-radius: 1rem 0 1em 0;
-   cursor: pointer;  
-}
 
+.listCardCheked h2{
+    text-align: center;
+}
 .buttons-container{
     display: flex;
     flex-direction: column;
@@ -149,14 +136,17 @@ ul{
     border-radius: 5px;
     font-weight: bold;
     margin-top: 0.6rem;
+    margin-right: 2rem;
 }
 .btn-edit{
+    
     background-color: #ff6f50;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 3.5rem;
     width: 3.5rem;
+    margin-left: 2rem;
     color: var(--color-background)
 }
 .btn-delete{
@@ -167,6 +157,7 @@ ul{
     height: 3.5rem;
     width: 3.5rem;
     color: var(--color-background);
+    margin-left: 2rem;
 }
 .checked{
     display: flex;
